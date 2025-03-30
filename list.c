@@ -134,29 +134,29 @@ void * popCurrent(List * list)
             return NULL;  
         }
     
-        Node * aux = list->current;
-        void*data = aux->data;
-        if (aux->prev != NULL) 
+        Node * auxiliar = list->current;
+        void*data = auxiliar->data;
+        if (auxiliar->prev != NULL) 
         {
-            aux->prev->next = aux->next;  
+            auxiliar->prev->next = auxiliar->next;  
         } 
         else 
         {
-            list->head = aux->next;  
+            list->head = auxiliar->next;  
         }
     
-        if (aux->next != NULL) 
+        if (auxiliar->next != NULL) 
         {
-            aux->next->prev = aux->prev;  
+            auxiliar->next->prev = auxiliar->prev;  
         } 
         else 
         {
-            list->tail = aux->prev;  
+            list->tail = auxiliar->prev;  
         }
     
-        list->current = aux->next;  
+        list->current = auxiliar->next;  
     
-        free(aux);  
+        free(auxiliar);  
         return data;  
     }
     
